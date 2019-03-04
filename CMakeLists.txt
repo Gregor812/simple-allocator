@@ -5,8 +5,8 @@ project(simpleAllocator
 )
 
 add_library(
-    SHARED
     Allocator
+    SHARED
     ${CMAKE_SOURCE_DIR}/allocator.cpp
 )
 
