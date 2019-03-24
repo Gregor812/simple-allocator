@@ -1,19 +1,20 @@
+#pragma once
+
 #include <cstdint>
 
-struct HeadBlockMetaData
+struct BorderTag
 {
+    size_t Size;
     bool IsFree;
-    HeadBlockMetaData* Next;
-    HeadBlockMetaData* Previous;
-    std::size_t Size;
 };
 
-struct TailBlockMetaData
+struct BlockMetaData
 {
-    bool IsFree;
-    std::size_t Size;
+    BlockMetaData* Next;
+    BlockMetaData* Previous;
+    BorderTag Tag;
 };
 
-void mysetup(void *buf, std::size_t size);
-void *myalloc(std::size_t size);
-void myfree(void *p);
+void mysetup(void *buf, size_t size);
+void* myalloc(size_t size);
+void myfree(void* p);
